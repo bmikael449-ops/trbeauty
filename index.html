@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TR BEAUTY | Maquiagem e Beleza</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fffaf7;
+      color: #241f20;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* CABEÇALHO */
+
+    header {
+      width: 100%;
+      padding: 22px 7%;
+      background: #fffaf7;
+      border-bottom: 1px solid #eee4df;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .instagram-top {
+      font-size: 14px;
+      color: #7d5b63;
+    }
+
+    /* BANNER */
+
+    .hero {
+      min-height: 420px;
+      padding: 70px 7%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          rgba(255, 239, 232, 0.88),
+          rgba(255, 239, 232, 0.88)
+        ),
+        url("blindagem.jpg");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero small {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #9a6b77;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 1;
+      margin: 20px 0;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #66595b;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 35px;
+      border-radius: 4px;
+
+      background: #241f20;
+      color: white;
+
+      font-weight: bold;
+      letter-spacing: 1px;
+
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #9b6574;
+      transform: translateY(-2px);
+    }
+
+    /* CATEGORIAS */
+
+    .categories {
+      padding: 25px 7%;
+
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      border-bottom: 1px solid #eee4df;
+    }
+
+    .category {
+      padding: 12px 25px;
+      border: 1px solid #d9c7c2;
+      border-radius: 30px;
+
+      background: white;
+      color: #66595b;
+    }
+
+    .category:hover {
+      background: #241f20;
+      color: white;
+    }
+
+    /* SEÇÕES */
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #806f72;
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #eee4df;
+      border-radius: 8px;
+      overflow: hidden;
+
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      background: #f2e8e3;
+    }
+
+    .card-content {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .card-content small {
+      color: #9b6574;
+      font-weight: bold;
+    }
+
+    .card-content h3 {
+      margin: 8px 0 18px;
+      font-size: 19px;
+    }
+
+    .card-button {
+      display: block;
+      padding: 12px;
+      background: #241f20;
+      color: white;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .card-button:hover {
+      background: #9b6574;
+    }
+
+    /* INSTAGRAM */
+
+    .instagram {
+      background: #f4ebe7;
+      text-align: center;
+    }
+
+    .instagram h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .instagram p {
+      color: #746568;
+      margin-bottom: 25px;
+    }
+
+    /* INFORMAÇÕES */
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .info-box {
+      padding: 30px;
+      background: white;
+      border: 1px solid #eee4df;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .info-box h3 {
+      margin-bottom: 12px;
+    }
+
+    .info-box p {
+      color: #746568;
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border-bottom: 1px solid #e5d8d3;
+      padding: 20px 5px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      padding-top: 15px;
+      color: #746568;
+      line-height: 1.6;
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      background: #241f20;
+      color: white;
+      padding: 45px 7%;
+      text-align: center;
+    }
+
+    footer h2 {
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #cfc4c5;
+      margin: 8px;
+    }
+
+    .footer-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-button {
+      padding: 12px 20px;
+      border: 1px solid #76696b;
+      border-radius: 5px;
+    }
+
+    .footer-button:hover {
+      background: #9b6574;
+      border-color: #9b6574;
+    }
+
+    /* CELULAR */
+
+    @media (max-width: 750px) {
+
+      header {
+        padding: 18px 5%;
+      }
+
+      .hero {
+        min-height: 500px;
+        padding: 50px 5%;
+      }
+
+      section {
+        padding: 55px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+
+  <header>
+    <div class="logo">
+      TR BEAUTY
+    </div>
+
+    <a
+      class="instagram-top"
+      href="https://www.instagram.com/tr_beautyy/"
+      target="_blank"
+    >
+      @tr_beautyy
+    </a>
+  </header>
+
+
+  <!-- BANNER PRINCIPAL -->
+
+  <div class="hero">
+
+    <div class="hero-content">
+
+      <small>Maquiagem e Beleza</small>
+
+      <h1>
+        Realce sua beleza do seu jeito.
+      </h1>
+
+      <p>
+        Encontre nossos produtos, acompanhe nosso Instagram
+        e fale diretamente conosco.
+      </p>
+
+      <a
+        class="button"
+        href="https://wa.me/5585989083779"
+        target="_blank"
+      >
+        FALAR PELO WHATSAPP
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- CATEGORIAS -->
+
+  <div class="categories">
+
+    <a class="category" href="#produtos">
+      Preparação
+    </a>
+
+    <a class="category" href="#produtos">
+      Lábios
+    </a>
+
+    <a class="category" href="#produtos">
+      Rosto
+    </a>
+
+    <a class="category" href="#produtos">
+      Pincéis
+    </a>
+
+  </div>
+
+
+  <!-- PRODUTOS / DIRECIONAMENTOS -->
+
+  <section id="produtos">
+
+    <div class="section-title">
+
+      <h2>
+        Encontre o que procura
+      </h2>
+
+      <p>
+        Clique em uma opção para falar conosco.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <!-- CARD 1 -->
+
+      <div class="card">
+
+        <img
+          class="card-image"
+          src="blindagem.jpg"
+          alt="Blindagem Poderosa"
+        >
+
+        <div class="card-content">
+
+          <small>DAPOP</small>
+
+          <h3>
+            Blindagem Poderosa 20ml
+          </h3>
+
+          <a
+            class="card-button"
+            href="https://wa.me/5585989083779?text=Olá!%20Tenho%20interesse%20na%20Blindagem%20Poderosa."
+            target="_blank"
+          >
+            COMPRAR PELO WHATSAPP
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 2 -->
+
+      <div class="card">
+
+        <div
+          class="card-image"
+          style="
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:60px;
+          "
+        >
+          💄
+        </div>
+
+        <div class="card-content">
+
+          <small>MAQUIAGEM</small>
+
+          <h3>
+            Conheça nossos produtos
+          </h3>
+
+          <a
+            class="card-button"
+            href="https://wa.me/5585989083779"
+            target="_blank"
+          >
+            VER PRODUTOS
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARD 3 -->
+
+      <div class="card">
+
+        <div
+          class="card-image"
+          style="
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:60px;
+          "
+        >
+          📸
+        </div>
+
+        <div class="card-content">
+
+          <small>TR BEAUTY</small>
+
+          <h3>
+            Acompanhe nosso Instagram
+          </h3>
+
+          <a
+            class="card-button"
+            href="https://www.instagram.com/tr_beautyy/"
+            target="_blank"
+          >
+            SEGUIR NO INSTAGRAM
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INSTAGRAM -->
+
+  <section class="instagram">
+
+    <h2>
+      SIGA A TR BEAUTY
+    </h2>
+
+    <p>
+      @tr_beautyy
+    </p>
+
+    <a
+      class="button"
+      href="https://www.instagram.com/tr_beautyy/"
+      target="_blank"
+    >
+      ABRIR INSTAGRAM
+    </a>
+
+  </section>
+
+
+  <!-- PAGAMENTO / ENTREGA -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        Informações
+      </h2>
+
+    </div>
+
+    <div class="info">
+
+      <div class="info-box">
+
+        <h3>
+          💳 Pagamento
+        </h3>
+
+        <p>
+          Pix ou dinheiro.
+        </p>
+
+      </div>
+
+      <div class="info-box">
+
+        <h3>
+          🛵 Entrega
+        </h3>
+
+        <p>
+          Retirada ou envio via Uber Flash.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        Perguntas frequentes
+      </h2>
+
+    </div>
+
+    <div class="faq">
+
+      <details>
+        <summary>
+          Como faço meu pedido?
+        </summary>
+
+        <p>
+          Escolha o produto e fale conosco pelo WhatsApp
+          para confirmar disponibilidade e finalizar seu pedido.
+        </p>
+      </details>
+
+
+      <details>
+        <summary>
+          Quais formas de pagamento vocês aceitam?
+        </summary>
+
+        <p>
+          Pix e dinheiro.
+        </p>
+      </details>
+
+
+      <details>
+        <summary>
+          Vocês entregam?
+        </summary>
+
+        <p>
+          Sim. Trabalhamos com retirada ou envio via Uber Flash.
+        </p>
+      </details>
+
+
+      <details>
+        <summary>
+          Posso retirar meu pedido?
+        </summary>
+
+        <p>
+          Sim. Combine a retirada pelo WhatsApp.
+        </p>
+      </details>
+
+    </div>
+
+  </section>
+
+
+  <!-- RODAPÉ -->
+
+  <footer>
+
+    <h2>
+      TR BEAUTY
+    </h2>
+
+    <p>
+      Loja on-line · Fortaleza, Ceará
+    </p>
+
+    <div class="footer-buttons">
+
+      <a
+        class="footer-button"
+        href="https://www.instagram.com/tr_beautyy/"
+        target="_blank"
+      >
+        Instagram
+      </a>
+
+      <a
+        class="footer-button"
+        href="https://wa.me/5585989083779"
+        target="_blank"
+      >
+        WhatsApp
+      </a>
+
+    </div>
+
+    <p style="margin-top:30px;">
+      © 2026 TR BEAUTY
+    </p>
+
+  </footer>
+
+</body>
+</html>
