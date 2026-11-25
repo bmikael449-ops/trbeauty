@@ -1,734 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>TR BEAUTY | Maquiagem e Beleza</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fffaf7;
-      color: #241f20;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* CABEÇALHO */
-
-    header {
-      width: 100%;
-      padding: 22px 7%;
-      background: #fffaf7;
-      border-bottom: 1px solid #eee4df;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 3px;
-    }
-
-    .instagram-top {
-      font-size: 14px;
-      color: #7d5b63;
-    }
-
-    /* BANNER */
-
-    .hero {
-      min-height: 420px;
-      padding: 70px 7%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      background:
-        linear-gradient(
-          rgba(255, 239, 232, 0.88),
-          rgba(255, 239, 232, 0.88)
-        ),
-        url("blindagem.jpg");
-
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero-content {
-      max-width: 650px;
-    }
-
-    .hero small {
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #9a6b77;
-      font-weight: bold;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 70px);
-      line-height: 1;
-      margin: 20px 0;
-      font-weight: 800;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #66595b;
-      margin-bottom: 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 16px 35px;
-      border-radius: 4px;
-
-      background: #241f20;
-      color: white;
-
-      font-weight: bold;
-      letter-spacing: 1px;
-
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      background: #9b6574;
-      transform: translateY(-2px);
-    }
-
-    /* CATEGORIAS */
-
-    .categories {
-      padding: 25px 7%;
-
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      border-bottom: 1px solid #eee4df;
-    }
-
-    .category {
-      padding: 12px 25px;
-      border: 1px solid #d9c7c2;
-      border-radius: 30px;
-
-      background: white;
-      color: #66595b;
-    }
-
-    .category:hover {
-      background: #241f20;
-      color: white;
-    }
-
-    /* SEÇÕES */
-
-    section {
-      padding: 70px 7%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #806f72;
-    }
-
-    /* CARDS */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #eee4df;
-      border-radius: 8px;
-      overflow: hidden;
-
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .card-image {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      background: #f2e8e3;
-    }
-
-    .card-content {
-      padding: 22px;
-      text-align: center;
-    }
-
-    .card-content small {
-      color: #9b6574;
-      font-weight: bold;
-    }
-
-    .card-content h3 {
-      margin: 8px 0 18px;
-      font-size: 19px;
-    }
-
-    .card-button {
-      display: block;
-      padding: 12px;
-      background: #241f20;
-      color: white;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .card-button:hover {
-      background: #9b6574;
-    }
-
-    /* INSTAGRAM */
-
-    .instagram {
-      background: #f4ebe7;
-      text-align: center;
-    }
-
-    .instagram h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .instagram p {
-      color: #746568;
-      margin-bottom: 25px;
-    }
-
-    /* INFORMAÇÕES */
-
-    .info {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .info-box {
-      padding: 30px;
-      background: white;
-      border: 1px solid #eee4df;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .info-box h3 {
-      margin-bottom: 12px;
-    }
-
-    .info-box p {
-      color: #746568;
-      line-height: 1.6;
-    }
-
-    /* FAQ */
-
-    .faq {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    details {
-      background: white;
-      border-bottom: 1px solid #e5d8d3;
-      padding: 20px 5px;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    details p {
-      padding-top: 15px;
-      color: #746568;
-      line-height: 1.6;
-    }
-
-    /* RODAPÉ */
-
-    footer {
-      background: #241f20;
-      color: white;
-      padding: 45px 7%;
-      text-align: center;
-    }
-
-    footer h2 {
-      letter-spacing: 3px;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      color: #cfc4c5;
-      margin: 8px;
-    }
-
-    .footer-buttons {
-      margin-top: 20px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .footer-button {
-      padding: 12px 20px;
-      border: 1px solid #76696b;
-      border-radius: 5px;
-    }
-
-    .footer-button:hover {
-      background: #9b6574;
-      border-color: #9b6574;
-    }
-
-    /* CELULAR */
-
-    @media (max-width: 750px) {
-
-      header {
-        padding: 18px 5%;
-      }
-
-      .hero {
-        min-height: 500px;
-        padding: 50px 5%;
-      }
-
-      section {
-        padding: 55px 5%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .info {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Friday: as melhores ofertas em um só lugar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&display=swap">
+<style>
+:root{--bg:#f6f5f1;--ink:#16130e;--mute:#625c50;--line:#e2dfd5;--card:#fff;--hot:#e5252a;--tag:#ffd60a;--ok:#0d7a3e;--hero:#16130e;--herotxt:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0e0c;--ink:#f5f2e8;--mute:#aaa392;--line:#2b2924;--card:#191815;--hot:#ff5a5f;--ok:#4cd68a;--hero:#050504}}
+:root[data-theme="dark"]{--bg:#0f0e0c;--ink:#f5f2e8;--mute:#aaa392;--line:#2b2924;--card:#191815;--hot:#ff5a5f;--ok:#4cd68a;--hero:#050504}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.hero{background:var(--hero);color:var(--herotxt);padding:56px 0 0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;background:var(--tag);border-radius:50%;opacity:.95}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-weight:900;font-size:clamp(2.3rem,7.5vw,4.6rem);line-height:1;letter-spacing:-.03em;margin:0 0 16px;max-width:15ch}
+.hero h1 em{font-style:normal;background:var(--tag);color:#16130e;padding:0 .15em;border-radius:6px}
+.hero p{font-size:1.1rem;max-width:44ch;margin:0 0 26px;color:#d8d4c8}
+.cta{display:inline-block;background:var(--tag);color:#16130e;font-weight:800;text-decoration:none;border-radius:10px;padding:15px 28px;font-size:1.05rem}
+.cta:hover{background:#fff}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:44px;padding:18px 0;border-top:1px solid #3a372f}
+.trust div{font-size:.92rem;color:#d8d4c8}
+.trust b{display:block;color:#fff;font-size:1rem}
+.bar{display:flex;gap:8px;overflow-x:auto;padding:22px 0 6px;-webkit-overflow-scrolling:touch}
+.bar button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;white-space:nowrap}
+.bar button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bar button:focus-visible,.buy:focus-visible,.cta:focus-visible{outline:3px solid var(--hot);outline-offset:3px}
+h2{font-size:1.7rem;font-weight:900;margin:22px 0 4px;letter-spacing:-.02em}
+.sub{color:var(--mute);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;padding-bottom:36px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.14)}
+.pic{position:relative;aspect-ratio:1/1;display:grid;place-items:center;font-size:5rem}
+.pic img{width:100%;height:100%;object-fit:cover}
+.off{position:absolute;top:12px;right:12px;background:var(--hot);color:#fff;font-weight:900;border-radius:8px;padding:5px 11px}
+.tag{position:absolute;top:12px;left:12px;background:var(--tag);color:#16130e;font-weight:800;font-size:.78rem;border-radius:6px;padding:4px 9px}
+.body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{color:var(--mute);font-size:.82rem;font-weight:600}
+.body h3{font-size:1.05rem;font-weight:800;margin:0;line-height:1.3}
+.rate{font-size:.88rem;color:var(--mute)}.rate b{color:#e8a200}
+.price{margin-top:auto;padding-top:10px}
+.old{color:var(--mute);text-decoration:line-through;font-size:.9rem}
+.new{font-size:1.85rem;font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.parc{color:var(--ok);font-weight:600;font-size:.88rem}
+.buy{display:block;text-align:center;text-decoration:none;background:var(--hot);color:#fff;font-weight:800;border-radius:10px;padding:14px;margin-top:14px;font-size:1rem}
+.buy:hover{filter:brightness(.9)}
+footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--mute);font-size:.85rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+</style>
 </head>
-
 <body>
-
-  <!-- CABEÇALHO -->
-
-  <header>
-    <div class="logo">
-      TR BEAUTY
+<header class="hero">
+  <div class="wrap">
+    <h1>Black Friday: as melhores <em>ofertas</em> em um só lugar</h1>
+    <p>Produtos selecionados com desconto, direto nas lojas oficiais.</p>
+    <a class="cta" href="#ofertas">Ver ofertas</a>
+    <div class="trust">
+      <div><b>Lojas oficiais</b>Você compra direto na loja.</div>
+      <div><b>Pagamento seguro</b>Pague no site da loja.</div>
+      <div><b>Entrega pela loja</b>Acompanhe o pedido por lá.</div>
     </div>
-
-    <a
-      class="instagram-top"
-      href="https://www.instagram.com/tr_beautyy/"
-      target="_blank"
-    >
-      @tr_beautyy
-    </a>
-  </header>
-
-
-  <!-- BANNER PRINCIPAL -->
-
-  <div class="hero">
-
-    <div class="hero-content">
-
-      <small>Maquiagem e Beleza</small>
-
-      <h1>
-        Realce sua beleza do seu jeito.
-      </h1>
-
-      <p>
-        Encontre nossos produtos, acompanhe nosso Instagram
-        e fale diretamente conosco.
-      </p>
-
-      <a
-        class="button"
-        href="https://wa.me/5585989083779"
-        target="_blank"
-      >
-        FALAR PELO WHATSAPP
-      </a>
-
-    </div>
-
   </div>
+</header>
 
+<main class="wrap" id="ofertas">
+  <div class="bar" id="bar" role="group" aria-label="Filtrar por categoria"></div>
+  <h2>Ofertas em destaque</h2>
+  <p class="sub">Confira o preço final na loja antes de concluir a compra.</p>
+  <div class="grid" id="grid"></div>
+</main>
 
-  <!-- CATEGORIAS -->
-
-  <div class="categories">
-
-    <a class="category" href="#produtos">
-      Preparação
-    </a>
-
-    <a class="category" href="#produtos">
-      Lábios
-    </a>
-
-    <a class="category" href="#produtos">
-      Rosto
-    </a>
-
-    <a class="category" href="#produtos">
-      Pincéis
-    </a>
-
+<footer>
+  <div class="wrap">
+    Alguns links desta página são links de afiliado: se você comprar por eles, posso receber uma comissão, sem custo extra para você. Preços e disponibilidade podem mudar sem aviso e são de responsabilidade da loja. Imagens meramente ilustrativas.
   </div>
-
-
-  <!-- PRODUTOS / DIRECIONAMENTOS -->
-
-  <section id="produtos">
-
-    <div class="section-title">
-
-      <h2>
-        Encontre o que procura
-      </h2>
-
-      <p>
-        Clique em uma opção para falar conosco.
-      </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-      <!-- CARD 1 -->
-
-      <div class="card">
-
-        <img
-          class="card-image"
-          src="blindagem.jpg"
-          alt="Blindagem Poderosa"
-        >
-
-        <div class="card-content">
-
-          <small>DAPOP</small>
-
-          <h3>
-            Blindagem Poderosa 20ml
-          </h3>
-
-          <a
-            class="card-button"
-            href="https://wa.me/5585989083779?text=Olá!%20Tenho%20interesse%20na%20Blindagem%20Poderosa."
-            target="_blank"
-          >
-            COMPRAR PELO WHATSAPP
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- CARD 2 -->
-
-      <div class="card">
-
-        <div
-          class="card-image"
-          style="
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:60px;
-          "
-        >
-          💄
-        </div>
-
-        <div class="card-content">
-
-          <small>MAQUIAGEM</small>
-
-          <h3>
-            Conheça nossos produtos
-          </h3>
-
-          <a
-            class="card-button"
-            href="https://wa.me/5585989083779"
-            target="_blank"
-          >
-            VER PRODUTOS
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- CARD 3 -->
-
-      <div class="card">
-
-        <div
-          class="card-image"
-          style="
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:60px;
-          "
-        >
-          📸
-        </div>
-
-        <div class="card-content">
-
-          <small>TR BEAUTY</small>
-
-          <h3>
-            Acompanhe nosso Instagram
-          </h3>
-
-          <a
-            class="card-button"
-            href="https://www.instagram.com/tr_beautyy/"
-            target="_blank"
-          >
-            SEGUIR NO INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- INSTAGRAM -->
-
-  <section class="instagram">
-
-    <h2>
-      SIGA A TR BEAUTY
-    </h2>
-
-    <p>
-      @tr_beautyy
-    </p>
-
-    <a
-      class="button"
-      href="https://www.instagram.com/tr_beautyy/"
-      target="_blank"
-    >
-      ABRIR INSTAGRAM
-    </a>
-
-  </section>
-
-
-  <!-- PAGAMENTO / ENTREGA -->
-
-  <section>
-
-    <div class="section-title">
-
-      <h2>
-        Informações
-      </h2>
-
-    </div>
-
-    <div class="info">
-
-      <div class="info-box">
-
-        <h3>
-          💳 Pagamento
-        </h3>
-
-        <p>
-          Pix ou dinheiro.
-        </p>
-
-      </div>
-
-      <div class="info-box">
-
-        <h3>
-          🛵 Entrega
-        </h3>
-
-        <p>
-          Retirada ou envio via Uber Flash.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FAQ -->
-
-  <section>
-
-    <div class="section-title">
-
-      <h2>
-        Perguntas frequentes
-      </h2>
-
-    </div>
-
-    <div class="faq">
-
-      <details>
-        <summary>
-          Como faço meu pedido?
-        </summary>
-
-        <p>
-          Escolha o produto e fale conosco pelo WhatsApp
-          para confirmar disponibilidade e finalizar seu pedido.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>
-          Quais formas de pagamento vocês aceitam?
-        </summary>
-
-        <p>
-          Pix e dinheiro.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>
-          Vocês entregam?
-        </summary>
-
-        <p>
-          Sim. Trabalhamos com retirada ou envio via Uber Flash.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>
-          Posso retirar meu pedido?
-        </summary>
-
-        <p>
-          Sim. Combine a retirada pelo WhatsApp.
-        </p>
-      </details>
-
-    </div>
-
-  </section>
-
-
-  <!-- RODAPÉ -->
-
-  <footer>
-
-    <h2>
-      TR BEAUTY
-    </h2>
-
-    <p>
-      Loja on-line · Fortaleza, Ceará
-    </p>
-
-    <div class="footer-buttons">
-
-      <a
-        class="footer-button"
-        href="https://www.instagram.com/tr_beautyy/"
-        target="_blank"
-      >
-        Instagram
-      </a>
-
-      <a
-        class="footer-button"
-        href="https://wa.me/5585989083779"
-        target="_blank"
-      >
-        WhatsApp
-      </a>
-
-    </div>
-
-    <p style="margin-top:30px;">
-      © 2026 TR BEAUTY
-    </p>
-
-  </footer>
-
+</footer>
+
+<script>
+/* ===== EDITE AQUI =====
+   nome, categoria, de (preço antigo), por (preço atual), parcela (ex.: "10x de R$ 15,00"),
+   nota (0 a 5), av (quantidade de avaliações), tag (ex.: "Mais vendido", ou vazio), emoji, link. */
+var PRODUTOS = [
+  {nome:"Fone Bluetooth com cancelamento de ruído",cat:"Eletrônicos",de:299.90,por:149.90,parcela:"10x de R$ 15,00 sem juros",nota:4.7,av:2310,tag:"Mais vendido",emoji:"🎧",cor:"#cfe3ff",link:"#"},
+  {nome:"Smartwatch com monitor de sono",cat:"Eletrônicos",de:399.00,por:189.90,parcela:"10x de R$ 19,00 sem juros",nota:4.5,av:1184,tag:"",emoji:"⌚",cor:"#e0d4ff",link:"#"},
+  {nome:"Air fryer 4 litros",cat:"Casa",de:449.90,por:259.90,parcela:"10x de R$ 26,00 sem juros",nota:4.8,av:5402,tag:"Menor preço",emoji:"🍟",cor:"#ffe0c2",link:"#"},
+  {nome:"Kit 3 lençóis de microfibra",cat:"Casa",de:189.90,por:89.90,parcela:"3x de R$ 30,00 sem juros",nota:4.6,av:897,tag:"",emoji:"🛏️",cor:"#d6f1e3",link:"#"},
+  {nome:"Tênis esportivo leve",cat:"Moda",de:259.90,por:139.90,parcela:"5x de R$ 28,00 sem juros",nota:4.4,av:640,tag:"",emoji:"👟",cor:"#ffd3d6",link:"#"},
+  {nome:"Kit skincare com vitamina C",cat:"Beleza",de:219.90,por:109.90,parcela:"4x de R$ 27,50 sem juros",nota:4.9,av:3120,tag:"Mais vendido",emoji:"🧴",cor:"#fff2b8",link:"#"}
+];
+/* ===== FIM DA EDIÇÃO ===== */
+
+function brl(v){return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
+var cats=["Todas"];PRODUTOS.forEach(function(p){if(cats.indexOf(p.cat)<0)cats.push(p.cat)});
+var atual="Todas",grid=document.getElementById("grid"),bar=document.getElementById("bar");
+function render(){
+  grid.innerHTML="";
+  PRODUTOS.forEach(function(p){
+    if(atual!=="Todas"&&p.cat!==atual)return;
+    var pct=Math.round((1-p.por/p.de)*100);
+    var el=document.createElement("article");el.className="card";
+    el.innerHTML='<div class="pic" style="background:'+p.cor+'">'+(p.tag?'<span class="tag"></span>':'')+'<span class="off">-'+pct+'%</span><span aria-hidden="true">'+p.emoji+'</span></div>'+
+    '<div class="body"><span class="cat"></span><h3></h3><div class="rate"><b>★</b> '+p.nota.toFixed(1).replace(".",",")+' ('+p.av.toLocaleString("pt-BR")+' avaliações)</div>'+
+    '<div class="price"><span class="old">de '+brl(p.de)+'</span><div class="new">'+brl(p.por)+'</div><span class="parc"></span></div>'+
+    '<a class="buy" target="_blank" rel="noopener sponsored">Ver oferta</a></div>';
+    if(p.tag)el.querySelector(".tag").textContent=p.tag;
+    el.querySelector(".cat").textContent=p.cat;
+    el.querySelector("h3").textContent=p.nome;
+    el.querySelector(".parc").textContent=p.parcela||"";
+    el.querySelector(".buy").href=p.link;
+    grid.appendChild(el);
+  });
+}
+cats.forEach(function(c){
+  var b=document.createElement("button");b.textContent=c;b.setAttribute("aria-pressed",c===atual);
+  b.onclick=function(){atual=c;[].forEach.call(bar.children,function(x){x.setAttribute("aria-pressed",x===b)});render()};
+  bar.appendChild(b);
+});
+render();
+</script>
 </body>
 </html>
